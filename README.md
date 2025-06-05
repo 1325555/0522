@@ -34,8 +34,7 @@
 ---
 
 ## 🛠️ 系統架構流程  
-
-```plaintext
+<pre>
 [使用者觸發]
       ↓
 [Gemini API 請求故事]
@@ -45,7 +44,7 @@
 [Arduino 控制 LED 呼吸燈]
       ↓
 [故事結束 → 燈光漸暗 → 系統休眠]
-
+</pre>pre>
 ## 🔧 使用材料（簡單版）  
 - Arduino Uno / Nano  
 - LED（暖白燈條或 RGB 模組）  
