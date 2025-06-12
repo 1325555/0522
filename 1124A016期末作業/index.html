@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>睡前故事生成器</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>睡前故事生成器</h1>
+        <div class="input-section">
+            <input type="text" id="storyPrompt" placeholder="請輸入故事主題或關鍵字（例如：小兔子、魔法森林）">
+            <button id="voiceInputBtn" onclick="startVoiceInput()">
+                <i class="fas fa-microphone"></i> 語音輸入
+            </button>
+            <button onclick="generateStory()">生成故事</button>
+            <div id="voiceStatus"></div>
+        </div>
+        <div class="story-section">
+            <div id="loadingMessage" style="display: none;">正在生成故事中...</div>
+            <div id="storyOutput"></div>
+            <div class="audio-controls">
+                <button id="playButton" onclick="playStory()" style="display: none;">
+                    <i class="fas fa-play"></i> 播放故事
+                </button>
+                <button id="pauseButton" onclick="pauseStory()" style="display: none;">
+                    <i class="fas fa-pause"></i> 暫停
+                </button>
+                <button id="stopButton" onclick="stopStory()" style="display: none;">
+                    <i class="fas fa-stop"></i> 停止
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await connectArduino();
+            } catch (error) {
+                console.error('自動連接 Arduino 失敗:', error);
+            }
+        });
+    </script>
+</body>
+</html>
